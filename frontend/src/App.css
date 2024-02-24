@@ -1,0 +1,13 @@
+body {
+  background-image: linear-gradient(
+      rgba(22, 22, 22, 0.5),
+      rgba(37, 37, 37, 0.5)
+    ),
+    url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0; /* Optional: remove default body margin */
+  padding: 0; /* Optional: remove default body padding */
+  background-attachment: fixed;
+}

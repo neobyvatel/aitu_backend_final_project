@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Rubik Black */
+@font-face {
+  font-family: "Rubik-Black";
+  src: url("/fonts/Rubik-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Rubik Black Italic */
+@font-face {
+  font-family: "Rubik-BlackItalic";
+  src: url("/fonts/Rubik-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Rubik Bold */
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/fonts/Rubik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Rubik Bold Italic */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Rubik Extra Bold */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Rubik Extra Bold Italic */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Rubik Italic */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Rubik Light */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Rubik Light Italic */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Rubik Medium */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Rubik Medium Italic */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Rubik Regular */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Rubik Semi Bold */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Rubik Semi Bold Italic */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+/* Add the following styles to your CSS file or inline styles in the React components */
