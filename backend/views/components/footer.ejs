@@ -1,0 +1,29 @@
+<section class="mt-5">
+  <footer class="text-center text-dark bg-">
+    <div class="container p-4 pb-0">
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center"></p>
+      </section>
+    </div>
+
+    <div
+      class="text-center p-3"
+      style="background-color: rgba(65, 0, 134, 0.4)"
+    >
+      <% if (!user) {%>
+      <span class="me-3">Haven't signed in yet?</span>
+
+      <a
+        href="/signup"
+        data-mdb-ripple-init
+        type="button"
+        class="btn btn-outline-dark btn-rounded"
+      >
+        > Sign up
+      </a>
+
+      <% } %> Project by
+      <a class="text-dark" href="/">Kenzhiyev Adil, SE-2203</a>
+    </div>
+  </footer>
+</section>

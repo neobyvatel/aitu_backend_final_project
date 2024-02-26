@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoChecker</title>
+    <%- include('../components/head.ejs') %>
+  </head>
+  <body>
+    <%- include('../components/navbar.ejs') %>
+
+    <!-- Form for searching stocks -->
+    <div class="container mt-3">
+      <form action="/stocks" method="post">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control mb-2"
+            name="ticker"
+            placeholder="Enter a ticker"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Get stock info</button>
+      </form>
+
+      <!-- Display stock information -->
+      <div class="crypto-info mt-3 rounded bg-light p-4">
+        <!-- Display stock information -->
+        <% if (stockInfo) { %>
+        <div class="crypto-info mt-3 rounded bg-light p-4">
+          <h2 class="display-4"><%= stockInfo.T %></h2>
+          <p><strong>Last Price:</strong> <%= stockInfo.p %></p>
+          <!-- Add more fields to display here if needed -->
+        </div>
+        <% } else { %>
+        <p>No stock information available.</p>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Include the footer -->
+    <%- include('../components/footer.ejs') %>
+
+    <!-- Custom script for displaying error -->
+    <% if (error) { %>
+    <script>
+      alert("An error occurred: <%= error %>");
+    </script>
+    <% } %>
+  </body>
+</html>

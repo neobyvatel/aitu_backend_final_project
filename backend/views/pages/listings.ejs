@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoChecker - Listings</title>
+    <%- include('../components/head.ejs') %>
+    <style>
+      /* Custom CSS for cryptocurrency listings table */
+      .crypto-table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .crypto-table th,
+      .crypto-table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .crypto-table th {
+        background-color: #f2f2f2;
+      }
+
+      .crypto-table tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      .crypto-table img {
+        max-width: 50px;
+      }
+
+      .crypto-table .card-body {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body class="bg-light vh-100">
+    <%- include('../components/navbar.ejs') %>
+
+    <div class="container my-5">
+      <h1 class="fs-1 fw-semibold">Cryptocurrency Listings</h1>
+
+      <% if (stockInfo) { %>
+      <h2 class="display-4"><%= stockInfo.name %></h2>
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="<%= stockInfo.logo %>"
+            alt="<%= stockInfo.name %>"
+            class="img-fluid mb-3"
+          />
+        </div>
+        <div class="col-md-8">
+          <p><strong>Ticker:</strong> <%= stockInfo.ticker %></p>
+          <p><strong>Market:</strong> <%= stockInfo.market %></p>
+          <p><strong>Locale:</strong> <%= stockInfo.locale %></p>
+          <p><strong>Currency:</strong> <%= stockInfo.currency %></p>
+          <p><strong>Active:</strong> <%= stockInfo.active ? "Yes" : "No" %></p>
+          <p>
+            <strong>Primary Exchange:</strong> <%= stockInfo.primary_exchange %>
+          </p>
+          <p><strong>Updated:</strong> <%= stockInfo.updated %></p>
+          <p>
+            <strong>URL:</strong>
+            <a href="<%= stockInfo.url %>"><%= stockInfo.url %></a>
+          </p>
+        </div>
+      </div>
+      <% } else { %>
+      <p>No stock information available.</p>
+      <% } %>
+    </div>
+
+    <%- include('../components/footer.ejs') %> <% if (error) { %>
+    <script>
+      Swal.fire({
+        title: "An error occurred!",
+        text: "<%= error %>",
+        icon: "error",
+      });
+    </script>
+    <% } %>
+  </body>
+</html>

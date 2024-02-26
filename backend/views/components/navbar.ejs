@@ -1,0 +1,97 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark"
+  style="background-color: rgba(0, 0, 0, 0.7)"
+>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img
+        src="/images/x-icon.svg"
+        height="48"
+        alt="Cloud logo"
+        loading="lazy"
+        class="mr-2"
+      />
+      <p class="mb-0">CryptoChecker</p>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage === 'home' ? 'active text-primary fw-semibold' : '' %>"
+            href="/"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage === 'listings' ? 'active text-primary fw-semibold' : '' %>"
+            href="/listings"
+            >Listings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage === 'crypto' ? 'active text-primary fw-semibold' : '' %>"
+            href="/crypto"
+            >Coin information</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage === 'stocks' ? 'active text-primary fw-semibold' : '' %>"
+            href="/stocks"
+            >Stocks</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage === 'news' ? 'active text-primary fw-semibold' : '' %>"
+            href="/news"
+            >News</a
+          >
+        </li>
+
+        <% if (user) { %>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage === 'history' ? 'active text-primary fw-semibold' : '' %>"
+            href="/history"
+            >History</a
+          >
+        </li>
+        <% } %>
+      </ul>
+      <div class="d-flex ms-auto">
+        <select id="language" class="rounded">
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+          <option value="kz">KZ</option>
+        </select>
+
+        &nbsp; <% if (!user) { %>
+        <a href="/login" class="btn btn-warning">Login</a> &nbsp;&nbsp;
+        <a href="/signup" class="btn btn-secondary ml-2">Sign up</a>
+        <% } else { %> <% if (user.is_admin) { %>
+        <a href="/admin/items" class="btn btn-primary rounded-3">Items</a
+        >&nbsp;&nbsp;
+        <a href="/admin" class="btn btn-primary rounded-3">Users</a>&nbsp;&nbsp;
+        <% } %>
+        <a href="" class="btn btn-primary rounded-3"><%= user.username %></a
+        >&nbsp;&nbsp;
+        <a href="/logout" class="btn btn-secondary">Logout</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

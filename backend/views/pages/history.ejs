@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoChecker</title>
+    <%- include('../components/head.ejs') %>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      * {
+        font-family: "Raleway";
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../components/navbar.ejs') %>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <h1 class="mb-4">History</h1>
+          <form action="/history/delete/all" method="GET">
+            <button class="btn btn-danger mb-4">Clear History</button>
+          </form>
+          <% if (logs.length > 0) { %> <% logs.forEach(function(log) { %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">
+                Request Type: <%= log.request_type.charAt(0).toUpperCase() +
+                log.request_type.slice(1) %>
+              </h5>
+              <p class="card-text">Request Data: <%= log.request_data %></p>
+              <p class="card-text">Status Code: <%= log.status_code %></p>
+              <p class="card-text">
+                Timestamp: <%= new Date(log.timestamp).toLocaleString() %>
+              </p>
+              <div class="d-flex justify-content-between">
+                <a href="/history/<%= log._id %>" class="btn btn-warning"
+                  >View Response JSON</a
+                >
+                <a href="/history/<%= log._id %>/delete" class="btn btn-danger"
+                  >Delete log</a
+                >
+              </div>
+            </div>
+          </div>
+          <% }); %> <% } else { %>
+          <p>No logs found.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <% if (error) { %>
+    <script>
+      Swal.fire({
+        title: "An error occurred!",
+        text: "<%= error %>",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    </script>
+    <% } %> <%- include('../components/footer.ejs') %>
+  </body>
+</html>
