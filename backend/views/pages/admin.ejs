@@ -6,8 +6,82 @@
     <title>CryptoChecker</title>
     <%- include('../components/head.ejs') %>
     <style>
-      * {
-        font-family: "Poppins";
+      /* Resetting default margin and padding */
+      body,
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Applying a background color */
+      body {
+        background-color: #f4f4f4;
+      }
+
+      /* Custom font */
+      body {
+        font-family: "Raleway", sans-serif;
+      }
+
+      /* Container styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Heading styles */
+      .fs-1 {
+        font-size: 2rem;
+      }
+
+      /* Button styles */
+      .btn-warning {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      /* List group styles */
+      .list-group {
+        margin-top: 20px;
+      }
+
+      .list-group-item {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+
+      /* Modal styles */
+      .modal-content {
+        background-color: #fff;
+      }
+
+      /* Form styles */
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* Checkbox styles */
+      .form-check-label {
+        margin-left: 5px;
+      }
+
+      /* Button inside modal styles */
+      .modal-footer button {
+        padding: 10px 20px;
       }
     </style>
   </head>
@@ -15,14 +89,14 @@
     <%- include('../components/navbar.ejs') %>
 
     <div class="container">
-      <div class="fs-1 fw-semibold my-3">Admin Panel | Manage Users</div>
+      <div class="fs-1 fw-semibold my-3">Admin Panel</div>
     </div>
 
     <div class="container">
       <div class="d-flex justify-content-start mb-3">
         <button
           type="button"
-          class="btn btn-primary px-4"
+          class="btn btn-warning px-4"
           data-bs-toggle="modal"
           data-bs-target="#addUserModal"
         >
@@ -141,7 +215,7 @@
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">Add User</button>
+              <button type="submit" class="btn btn-warning">Add User</button>
             </div>
           </form>
         </div>
@@ -206,7 +280,7 @@
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">Update User</button>
+              <button type="submit" class="btn btn-warning">Update User</button>
             </div>
           </form>
         </div>

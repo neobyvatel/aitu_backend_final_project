@@ -31,6 +31,7 @@ app.use(express.static("public"));
 app.set("trust proxy", true);
 
 // Index page
+// Index page
 app.get("/", async (req, res) => {
   const user = await getUserInstance(req);
   const items = await ItemModel.find().exec();
@@ -55,13 +56,15 @@ app.get("/listings", async (req, res) => {
         activePage: "listings",
         user: user ? user : null,
         error: null,
-        listings: listings, // Pass cryptocurrency listings to the template
+        stockInfo: null, // Pass the stockInfo here or update the logic to populate it
+        listings: listings,
       });
     } else {
       res.render("pages/listings.ejs", {
         activePage: "listings",
         user: user ? user : null,
         error: "Failed to fetch cryptocurrency listings",
+        stockInfo: null,
         listings: null,
       });
     }
@@ -71,10 +74,12 @@ app.get("/listings", async (req, res) => {
       activePage: "listings",
       user: user ? user : null,
       error: "Failed to fetch cryptocurrency listings",
+      stockInfo: null,
       listings: null,
     });
   }
 });
+
 // stocks page
 app.get("/stocks", async (req, res) => {
   const user = await getUserInstance(req);
@@ -235,6 +240,16 @@ app.get("/history/:objectId/delete", ensureAuthenticated, async (req, res) => {
 
 app.get("/history/delete/all", ensureAuthenticated, async (req, res) => {
   const user = await getUserInstance(req);
+
+  if (!user) {
+    return res.status(303).redirect("/");
+  }
+
+  const logs = await LogsModel.find({ user: user._id }).exec();
+
+  if (!logs || logs.length === 0) {
+    return res.status(404).send("No logs found to delete.");
+  }
 
   await LogsModel.deleteMany({ user: user._id }).exec();
   res.status(303).redirect("/history");
@@ -406,7 +421,6 @@ app.get("/login", alreadyLoggedIn, async (req, res) => {
   if (user) {
     return res.status(303).redirect("/");
   }
-
   res.render("pages/login.ejs", {
     activePage: "login",
     error: null,

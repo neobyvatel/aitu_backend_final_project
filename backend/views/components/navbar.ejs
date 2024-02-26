@@ -28,35 +28,35 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a
-            class="nav-link <%= activePage === 'home' ? 'active text-primary fw-semibold' : '' %>"
+            class="nav-link <%= activePage === 'home' ? 'active text-warning fw-semibold' : '' %>"
             href="/"
             >Home</a
           >
         </li>
         <li class="nav-item">
           <a
-            class="nav-link <%= activePage === 'listings' ? 'active text-primary fw-semibold' : '' %>"
+            class="nav-link <%= activePage === 'listings' ? 'active text-warning fw-semibold' : '' %>"
             href="/listings"
             >Listings</a
           >
         </li>
         <li class="nav-item">
           <a
-            class="nav-link <%= activePage === 'crypto' ? 'active text-primary fw-semibold' : '' %>"
+            class="nav-link <%= activePage === 'crypto' ? 'active text-warning fw-semibold' : '' %>"
             href="/crypto"
             >Coin information</a
           >
         </li>
         <li class="nav-item">
           <a
-            class="nav-link <%= activePage === 'stocks' ? 'active text-primary fw-semibold' : '' %>"
+            class="nav-link <%= activePage === 'stocks' ? 'active text-warning fw-semibold' : '' %>"
             href="/stocks"
             >Stocks</a
           >
         </li>
         <li class="nav-item">
           <a
-            class="nav-link <%= activePage === 'news' ? 'active text-primary fw-semibold' : '' %>"
+            class="nav-link <%= activePage === 'news' ? 'active text-warning fw-semibold' : '' %>"
             href="/news"
             >News</a
           >
@@ -65,7 +65,7 @@
         <% if (user) { %>
         <li class="nav-item">
           <a
-            class="nav-link <%= activePage === 'history' ? 'active text-primary fw-semibold' : '' %>"
+            class="nav-link <%= activePage === 'history' ? 'active text-warning fw-semibold' : '' %>"
             href="/history"
             >History</a
           >
@@ -83,11 +83,11 @@
         <a href="/login" class="btn btn-warning">Login</a> &nbsp;&nbsp;
         <a href="/signup" class="btn btn-secondary ml-2">Sign up</a>
         <% } else { %> <% if (user.is_admin) { %>
-        <a href="/admin/items" class="btn btn-primary rounded-3">Items</a
+        <a href="/admin/items" class="btn btn-warning rounded-3">Items</a
         >&nbsp;&nbsp;
-        <a href="/admin" class="btn btn-primary rounded-3">Users</a>&nbsp;&nbsp;
+        <a href="/admin" class="btn btn-warning rounded-3">Users</a>&nbsp;&nbsp;
         <% } %>
-        <a href="" class="btn btn-primary rounded-3"><%= user.username %></a
+        <a href="" class="btn btn-warning rounded-3"><%= user.username %></a
         >&nbsp;&nbsp;
         <a href="/logout" class="btn btn-secondary">Logout</a>
         <% } %>

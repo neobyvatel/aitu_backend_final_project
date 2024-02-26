@@ -7,7 +7,7 @@
     <%- include('../components/head.ejs') %>
     <style>
       * {
-        font-family: "Poppins";
+        font-family: "Raleway";
       }
     </style>
   </head>
@@ -19,7 +19,7 @@
 
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-warning"
         data-bs-toggle="modal"
         data-bs-target="#addItemModal"
       >
@@ -148,7 +148,7 @@
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">Add Item</button>
+              <button type="submit" class="btn btn-warning">Add Item</button>
             </div>
           </form>
         </div>
@@ -280,7 +280,7 @@
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-warning">
                 Save Changes
               </button>
             </div>
@@ -326,7 +326,7 @@
               </td>
               <td>
                 <button
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-warning btn-sm"
                   onclick="editItem('<%= item._id %>')"
                 >
                   Edit
